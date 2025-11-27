@@ -16,8 +16,8 @@ EXPECTED_HASH="7ee73ff2b6057ed279fe22d871b2dff28f53384f9da6f43e0dda9f2664e097be"
 # ======================================
 echo "[1/6] Cleaning up..."
 
-${ROOT}/crackle/crackle update
-${ROOT}/crackle/crackle click maliit-inputcontext-gtk3
+# ${ROOT}/crackle/crackle update
+# ${ROOT}/crackle/crackle click maliit-inputcontext-gtk3
 
 
 # ========================
@@ -28,7 +28,7 @@ rm -rf "$EXTRACT_DIR" "$INSTALL_DIR"
 mkdir -p "$EXTRACT_DIR" "$INSTALL_DIR"
 cp -r ${BUILD_DIR}/usr/lib "$INSTALL_DIR"
 rm -rf $INSTALL_DIR/lib/x86_64-linux-gnu
-cp -r ${ROOT}/immodules.cache "$INSTALL_DIR/lib/aarch64-linux-gnu/gtk-3.0/3.0.0/immodules/immodules.cache"
+# cp -r ${ROOT}/immodules.cache "$INSTALL_DIR/lib/aarch64-linux-gnu/gtk-3.0/3.0.0/immodules/immodules.cache"
 
 # ========================
 # STEP 2: DOWNLOAD THE LATEST SIGNAL DESKTOP SNAP USING SNAP
