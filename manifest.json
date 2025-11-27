@@ -1,0 +1,15 @@
+{
+    "name": "chromiumut.shapa",
+    "description": "Chrome app for ubtouch",
+    "architecture": "@CLICK_ARCH@",
+    "title": "chromiumuat",
+    "hooks": {
+        "chromelauncher": {
+            "apparmor": "chromiumut.apparmor",
+            "desktop":  "chromiumut.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "shapa <email@domain.org>",
+    "framework" : "@CLICK_FRAMEWORK@"
+}
