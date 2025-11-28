@@ -43,7 +43,7 @@ if [ "$DISPLAY" = "" ]; then
 else
     echo "DISPLAY already set to: $DISPLAY"
 fi
-a
+
 export PATH=$PWD/bin:$PATH
 echo "PATH updated: $PATH"
 
