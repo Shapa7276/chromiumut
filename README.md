@@ -1,7 +1,10 @@
 # chromiumuat
 
-Chrome app for ubtouch
+Chromium app for ubtouch
 
+# Build Instructions
+
+```clickable build --arch arm64```
 ## License
 
 Copyright (C) 2025  shapa

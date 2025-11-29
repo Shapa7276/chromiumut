@@ -1,21 +1,15 @@
 {
-    "template": "unconfined",
-    "policy_version": 20.04,
+    "policy_version": "@APPARMOR_POLICY@",
     "policy_groups": [
     "networking",
          "audio",
-         "video"],
-    "read_path": [
-        "/home/phablet/.config/chromium/",
-        "/etc/gtk-3.0/settings.ini",
-        "/run/user/",
-        "/run/user/32011/dconf/user",
-        "/proc/sys/fs/inotify/max_user_watches"
-    ],
-    "write_path": [
-        "/home/phablet/.config/chromium/",
-        "/run/user/",
-        "/run/user/32011/dconf/user",
-        "/dev/shm/"
-    ]
+         "video",
+         "webview",
+         "microphone",
+         "camera",
+         "content_exchange",
+         "content_exchange_source",
+         "keep-display-on",
+         "push-notification-client"
+         ]
 }

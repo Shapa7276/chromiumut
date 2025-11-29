@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Chromium
 Comment=Chromium Desktop Launcher
-Exec=launcher.sh
+Exec=./launcher.sh
 Terminal=false
 Type=Application
 Icon=icon.png

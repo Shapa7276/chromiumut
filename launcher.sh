@@ -1,15 +1,9 @@
 #!/bin/sh
 
-# Setup logging to temporary location
-
-
 echo "========================================" 
 echo "Launcher started at $(date)"
 echo "========================================"
-echo "PWD: $PWD"
-echo "PATH: $PATH"
-echo "User: $(whoami)"
-echo "UID: $(id)"
+
 export GDK_SCALE=3
 export GTK_IM_MODULE=Maliit
 export GTK_IM_MODULE_FILE=$PWD/lib/aarch64-linux-gnu/gtk-3.0/3.0.0/immodules/immodules.cache
@@ -55,11 +49,9 @@ else
 fi
 
 dpioptions="--high-dpi-support=1 --force-device-scale-factor=$scale --grid-unit-px=$GRID_UNIT_PX"
-gpuoptions="--use-gl=egl --simulate-touch-screen-with-mouse --touch-events=enabled --enable-features=OverlayScrollbar,kEnableQuic,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter --enable-smooth-scrolling  --disable-low-res-tiling --enable-gpu --enable-gpu-rasterization --enable-zero-copy  --adaboost --enable-gpu-msemory-buffer-video-frames  --font-render-hinting=none --disable-font-subpixel-positioning --disable-new-content-rendering-timeout --enable-defer-all-script-without-optimization-hints  --enable-gpu-vsync  --enable-oop-rasterization --enable-accelerated-video-decode"
+gpuoptions="--no-sandbox --ignore-gpu-blocklist --use-gl=egl --simulate-touch-screen-with-mouse --touch-events=enabled --disable-frame-rate-limit --enable-features=UseSkiaRenderer,VaapiVideoDecoder,OverlayScrollbar,kEnableQuic,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter --enable-smooth-scrolling  --disable-low-res-tiling --enable-gpu --enable-gpu-rasterization --enable-zero-copy  --adaboost --enable-gpu-msemory-buffer-video-frames  --font-render-hinting=none --disable-font-subpixel-positioning --disable-new-content-rendering-timeout --enable-defer-all-script-without-optimization-hints  --disable-gpu-vsync  --enable-oop-rasterization --enable-accelerated-video-decode"
 
-echo "Options configured"
-echo "DPI options: $dpioptions"
-echo "GPU options: $gpuoptions"
+
 
 echo "Checking for Chrome binary..."
 if [ -f "./usr/lib/chromium-browser/chrome" ]; then
@@ -70,8 +62,10 @@ fi
 
 echo "Launching background dummy app..."
 #Open a dummy qt gui app to release lomiri from its waiting
-(utils/sleep.sh; $PWD/bin/xdg-open )&
-echo "Dummy app launched in background"
+#Open a dummy qt gui app to realease lomiri from its waiting
+( utils/sleep.sh; $PWD/bin/xdg-open )&
 
+
+initpwd=$PWD
 echo "Starting Chrome..."
-exec ./usr/lib/chromium-browser/chrome  $dpioptions $gpuoptions
+exec $initpwd/usr/lib/chromium-browser/chrome  $dpioptions $gpuoptions
